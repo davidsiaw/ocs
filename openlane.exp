@@ -1,0 +1,10 @@
+set timeout -1
+spawn ./env.py local-install
+match_max 100000
+expect "Which UNIX/Unix-like OS are you using?"
+send -- "\r"
+expect "Do you want to install dependencies using your package manager?"
+send -- "yes\r"
+expect -exact "yes\r"
+send -- ""
+expect eof
